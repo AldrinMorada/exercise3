@@ -76,4 +76,8 @@ export class BookService {
   getBooks():Book[] {
     return this.books;
   }
+
+  getBook(id:number):Book|undefined {
+    return this.books.find(book => book.id === id);
+  }
 }

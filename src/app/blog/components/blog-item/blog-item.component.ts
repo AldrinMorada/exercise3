@@ -2,7 +2,7 @@ import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
 import { Blog } from '../../models/blog';
 
 @Component({
-  selector: 'blog-item',
+  selector: 'app-blog-item',
   templateUrl: './blog-item.component.html',
   styleUrls: ['./blog-item.component.scss']
 })

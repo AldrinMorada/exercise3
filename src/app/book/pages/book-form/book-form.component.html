@@ -1,0 +1,108 @@
+<div class="grid place-items-center">
+  <form
+    [formGroup]="bookForm"
+    class="border-2 border-gray-200 min-w-[400px] px-12 py-16 rounded-md space-y-4 shadow-lg"
+  >
+    <div class="form-group">
+      <label for="name"
+        >Book Name: <br />
+        <input
+          formControlName="name"
+          placeholder="Book name"
+          type="text"
+          id="name"
+          class="form-control w-full px-2 py-1"
+          [ngClass]="
+            bookForm.get('name')?.invalid &&
+            (bookForm.get('name')?.dirty || bookForm.get('name')?.touched)
+              ? 'border-l-4 border-red-600'
+              : ''
+          "
+          required
+        />
+        <div
+          *ngIf="
+            bookForm.get('name')?.invalid &&
+            (bookForm.get('name')?.dirty || bookForm.get('name')?.touched)
+          "
+          class="text-red-700"
+        >
+          *Please provide a name.
+        </div>
+      </label>
+    </div>
+
+    <ng-container formArrayName="addNewAuthor">
+      <div class="flex items-center justify-between">
+        <label for="addNewAuthor">Author:</label>
+        <button
+          (click)="addAuthor()"
+          class="bg-blue-600 px-2 py-1 text-white rounded-md"
+        >
+          <i class="fa fa-add" aria-hidden="true"></i> Add Author
+        </button>
+      </div>
+      <div *ngFor="let _ of ff.controls; index as i" class="input-group mb-3">
+        <div class="grid grid-cols-8">
+          <input
+            [formControlName]="i"
+            placeholder="Author name"
+            class="form-control w-full px-2 py-1 col-span-7"
+          />
+          <button
+            type="button"
+            class="px-2 py-1 rounded-r bg-red-700 text-white"
+            (click)="deleteAuthor(i)"
+          >
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </ng-container>
+
+    <div class="form-group">
+      <label for="isbn"
+        >ISBN: <br />
+        <input
+          formControlName="isbn"
+          placeholder="ISBN"
+          type="text"
+          id="isbn"
+          class="form-control w-full px-2 py-1"
+          [ngClass]="
+            bookForm.get('isbn')?.invalid &&
+            (bookForm.get('isbn')?.dirty || bookForm.get('isbn')?.touched)
+              ? 'border-l-4 border-red-600'
+              : ''
+          "
+          required
+        />
+        <div
+          *ngIf="
+            bookForm.get('isbn')?.invalid &&
+            (bookForm.get('isbn')?.dirty || bookForm.get('isbn')?.touched)
+          "
+          class="text-red-700"
+        >
+          *ISBN is not valid.
+        </div>
+      </label>
+    </div>
+
+    <div class="flex justify-center">
+      <button
+        type="submit"
+        (click)="submitBook()"
+        [ngClass]="
+          bookForm.invalid
+            ? 'cursor-not-allowed bg-gray-400'
+            : 'hover:bg-blue-600'
+        "
+        [disabled]="bookForm.invalid"
+        class="px-4 py-2 bg-blue-900 text-white rounded-md"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,3 +1,6 @@
+<div class="flex justify-end px-5">
+  <app-command-bar (actionEmitter)="action($event)"></app-command-bar>
+</div>
 <div *ngFor="let blog of blogs; let i=index">
-  <blog-item [blog]="blog" (editBlogEmitter)="edit($event)" (deleteBlogEmitter)="del($event)"></blog-item>
+ <app-blog-item [blog]="blog" (editBlogEmitter)="edit($event)" (deleteBlogEmitter)="del($event)"></app-blog-item>
 </div>

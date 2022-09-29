@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Book } from '../../models/book';
-import { BookService } from '../../services/book.service';
 
 @Component({
   selector: 'book-item',
@@ -12,9 +11,7 @@ export class BookItemComponent implements OnInit {
   @Input() book:Book|undefined
   @Output() editBookEmitter = new EventEmitter();
   @Output() deleteBookEmitter = new EventEmitter();
-  constructor() {
-
-  }
+  constructor() {}
 
   ngOnInit(): void {
   }

@@ -1,10 +1,12 @@
+<div class="flex justify-end px-5">
+  <app-command-bar (actionEmitter)="action($event)"></app-command-bar>
+</div>
 <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-5">
-  <div *ngFor="let book of books; let i=index">
-    <book-item [book]="book" (editBookEmitter)="edit($event)" (deleteBookEmitter)="del($event)"></book-item>
+  <div *ngFor="let book of books; let i = index">
+    <book-item
+      [book]="book"
+      (editBookEmitter)="edit($event)"
+      (deleteBookEmitter)="del($event)"
+    ></book-item>
   </div>
 </div>
-
-
-
-
-
