@@ -1,11 +1,23 @@
-<div class="grid grid-cols-2 md:grid-cols-4 w-full space-y-2">
-  <div class="md:col-span-3 flex items-center">
-    <div>
-      <b>Blog #{{blog?.id}}</b>: {{blog|json}}
-    </div>
-  </div>
-  <div class="space-x-2">
-    <button class="border border-gray-900 text-white hover:bg-orange-400 rounded-md bg-orange-500 px-3" (click)="editBlog()">Edit</button>
-    <button class="border border-gray-900 text-white hover:bg-red-400 rounded-md bg-red-500 px-1" (click)="deleteBlog()">Delete</button>
-  </div>
+
+
+<div class="py-2 flex flex-col justify-center sm:py-4">
+  <div class="relative py-3 sm:w-[300px] md:w-[450px] lg:w-[600px] sm:max-w-xl sm:mx-auto">
+    <div class="relative px-2 py-3 bg-white shadow-lg sm:rounded-xl sm:p-8 bg-clip-padding
+     bg-opacity-60 border border-gray-200" style="backdrop-filter: blur(20px);">
+          <h4>{{blog?.id}}</h4>
+          <div class="text-center py-2 divide-y divide-gray-200">
+            <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-600 dark:text-gray-900">{{ blog?.title }}</h2>
+          </div>
+
+          <div class="py-4 space-y-4 text-gray-700">
+              <p>{{blog?.description}}</p>
+
+          </div>
+            <span class="font-normal text-gray-700 dark:text-gray-600"> {{ blog?.author }}</span> <br>
+            <div>{{blog?.comments}}</div>
+        </div>
+      </div>
 </div>
+
+
+

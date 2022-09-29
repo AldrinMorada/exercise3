@@ -1,1 +1,27 @@
-<p>header works!</p>
+<nav class="h-12 py-2 bg-white border-b-2 border-cyan-500 shadow-xl md:flex md:items-center md:justify-between px-8 fixed top-0 w-full z-50">
+  <div>
+    <span class="text-2 font-[Poppins]">
+      77 Global Services Inc.
+    </span>
+    <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+    aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
+        class="fas fa-bars fa-1x"></i></span></button>
+  </div>
+
+  <ul class="space-y-2 md:space-x-4 md:space-y-0 md:flex md:items-center  z-[-1] md:z-auto md:static
+   absolute bg-white w-full left-0 md:w-auto py:4 md:py-0 pl-7 md:pl-0 opacity-0 md:opacity-100
+   top-[-400px] transition-all ease-in duration-500">
+    <li>
+      <a href="/" [ngClass]="currentRoute === '' ? 'text-cyan-500': ''"  class="text-xl hover:text-cyan-500 duration-500">Home</a>
+    </li>
+    <li>
+      <a href="/book" [ngClass]="currentRoute === 'book' ? 'text-cyan-500': ''"  class="text-xl hover:text-cyan-500 duration-500">Book</a>
+    </li>
+    <li>
+      <a href="/blog" [ngClass]="currentRoute === 'blog' ? 'text-cyan-500': ''"  class="text-xl hover:text-cyan-500 duration-500">Blog</a>
+    </li>
+    <li>
+      <a href="/profile" [ngClass]="currentRoute === 'profile' ? 'text-cyan-500': ''"  class="text-xl hover:text-cyan-500 duration-500">Profile</a>
+    </li>
+  </ul>
+</nav>
